@@ -55,20 +55,6 @@ DNS – Recorded queries and responses for domain name lookups.
 
 TCP – Verified reliable connection setup using the three-way handshake.
 
-
-
----
-
-📂 Repository Structure
-
-WIRESHARK-ANALYSIS/
-│
-├── screenshots/           # Wireshark interface and packet filters applied
-├── capture.pcap           # Packet capture file
-├── analysis_report.txt    # Detailed analysis of captured data
-└── README.md              # Project documentation
-
-
 ---
 
 📚 Learning Outcomes
@@ -83,6 +69,4 @@ Understanding of TCP/IP communication and basic troubleshooting.
 
 ---
 
-🔗 References
 
-Wireshark Official Site
