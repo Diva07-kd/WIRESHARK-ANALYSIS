@@ -1,0 +1,128 @@
+1) WIRESHARK CONCEPT:
+
+Wireshark is a network protocol analyzer. In simple terms, it's a tool that lets you "see" what's
+happening on your network at a very detailed level. It captures network packets in real-time and shows
+you exactly what data is being sent and received.
+
+Think of Wireshark as a microscope for network traffic.
+
+2) PACKET CAPTURE (SNIFFING):
+
+Wireshark can capture packets — which are small chunks of data sent over the network — directly from your
+network interface (like Ethernet or Wi-Fi). When you press the "start capture" button in Wireshark,
+it begins recording all traffic on the selected interface.
+
+Every packet contains:
+
+Header info: Source/destination IP, ports, etc.
+
+    Payload: The actual data being transferred (could be part of a webpage, image, email, etc.)
+
+You can then pause or save this capture for detailed analysis.
+
+
+3) PROT ANALYSIS:
+
+Wireshark understands and decodes hundreds of network protocols like:
+
+    TCP/UDP
+
+    HTTP, HTTPS
+
+    DNS
+
+    TLS/SSL
+
+    ARP, ICMP, and many more
+
+When a packet is captured, Wireshark parses it and shows all protocol layers:
+
+    Ethernet
+
+    IP
+
+    TCP/UDP
+
+    Application layer protocols (like HTTP/HTTPS)
+
+This helps you see exactly what's happening in each conversation.
+ TCP/IP Overview in Wireshark
+
+TCP/IP is the core model behind all internet communications.
+Breakdown:
+
+    IP Layer: Handles addresses and routing (IPv4 or IPv6).
+
+    TCP Layer: Ensures reliable delivery using 3-way handshakes, sequence numbers, ACKs, etc.
+
+    Application Layer: Protocols like HTTP, HTTPS, FTP, etc.
+
+Wireshark lets you see:
+
+    TCP handshakes (SYN, SYN-ACK, ACK)
+
+    Retransmissions
+
+    Lost packets
+
+    Out-of-order packets
+
+    HTTP GET/POST requests
+
+    HTTPS encrypted traffic
+
+4) Network Troubleshooting
+
+Wireshark is a powerful tool for diagnosing network problems:
+Common things you can troubleshoot:
+
+    Slow internet or applications: See if there are delays or retransmissions.
+
+    DNS resolution issues
+
+    Packet loss or corrupted data
+
+    Unwanted/malicious traffic (like ARP poisoning or port scans)
+
+    SSL handshake failures
+
+    Dropped connections
+
+You can track conversations, follow TCP streams, and even rebuild HTTP sessions.
+
+
+5) Filtering Packets (Display Filters)
+
+Wireshark allows you to use filters to only show the packets you're interested in.
+Example display filters:
+
+    ip.addr == 192.168.1.1 → All packets involving this IP
+
+    tcp.port == 80 → Only HTTP traffic
+
+    http → Only HTTP protocol packets
+
+    tcp.flags.syn == 1 → TCP SYN packets (start of a connection)
+
+    tls → Encrypted traffic (HTTPS, TLS sessions)
+
+You can apply these filters to zoom in on what you care about instead of sifting through thousands of packets.
+
+
+🔐 HTTP vs HTTPS in Wireshark
+
+From your screenshots:
+
+    HTTP traffic (Port 80):
+
+        Fully visible.
+
+        You can see GET/POST requests, headers, even data being sent.
+
+    HTTPS traffic (Port 443):
+
+        Encrypted using TLS.
+
+        You can't see the content (only the handshake and encrypted packets).
+
+        Useful for checking handshake problems, certificates, and encryption details.

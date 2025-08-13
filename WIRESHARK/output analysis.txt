@@ -1,0 +1,68 @@
+OUTPUT ANALYSIS (From Screenshots):
+
+    Screenshot 1 & 2: HTTP Traffic (tcp.port == 80)
+
+    Captured packets with filter: tcp.port == 80 (HTTP).
+
+    Observing unencrypted HTTP communication between client and server over port 80.
+
+Observations:
+
+    Frame 76 is a SYN packet → start of TCP connection.
+
+    Followed by SYN-ACK and ACK → completing the 3-way handshake.
+
+    Then HTTP packets are exchanged (GET/POST).
+
+    Data and ACKs are visible in clear text.
+
+What it shows:
+
+    This is a successful HTTP connection.
+
+    You can inspect:
+
+        Headers
+
+        Payload
+
+    Full request/response (since it's unencrypted)
+
+Conclusion: HTTP traffic is fully visible in Wireshark. You can analyze every request
+and its response, which is useful for debugging web issues or learning HTTP.
+
+
+Screenshot 3: HTTPS Traffic (tcp.port == 443)
+
+    Captured packets using tcp.port == 443 (HTTPS).
+
+    You're observing encrypted web traffic over TLS (HTTPS).
+
+Observations:
+
+    Initial TCP 3-way handshake is visible.
+
+    Then a TLS handshake begins:
+
+        Client Hello
+
+        Server Hello
+
+        Key exchange and cipher negotiation
+
+    After the handshake, everything is encrypted
+
+What it shows:
+
+    You can only analyze:
+
+        Handshake steps
+
+        Encryption protocols used
+
+        Certificates exchanged (if available)
+
+    But you can’t read the actual data like HTTP.
+
+Conclusion: HTTPS traffic is encrypted, and you can’t see the content (like login info or pages).
+But you can still analyze the TLS session quality, performance, and issues.
